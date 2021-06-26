@@ -5,6 +5,37 @@
 ## User settings
 xcuserdata/
 
+*~
+.DS_Store
+
+# Merge files
+*.orig
+
+# Binaries
+*.dylib
+*.a
+*.o
+*.d
+*.libdeps
+*.zip
+*.realm
+!examples/ios/swift/Migration/RealmTemplates/*.realm
+!examples/ios/objc/Migration/RealmTemplates/*.realm
+*.realm.lock
+
+# core
+core
+core-*
+realm-core-*-xcframework
+
+# sh build.sh cocoapods-setup
+/include
+
+# sh build.sh docs
+/docs/objc_output
+/docs/swift_output
+/Realm/RLMPlatform.h
+
 ## compatibility with Xcode 8 and earlier (ignoring not required starting Xcode 9)
 *.xcscmblueprint
 *.xccheckout
@@ -57,7 +88,7 @@ playground.xcworkspace
 # Pods/
 #
 # Add this line if you want to avoid checking in source code from the Xcode workspace
-# *.xcworkspace
+ *.xcworkspace
 
 # Carthage
 #
@@ -86,5 +117,10 @@ fastlane/test_output
 #
 # After new code Injection tools there's a generated folder /iOSInjectionProject
 # https://github.com/johnno1962/injectionforxcode
+
+## Swiftpm
+.swiftpm
+.build
+Package.resolved
 
 iOSInjectionProject/
