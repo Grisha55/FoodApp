@@ -14,6 +14,7 @@
 		BE1627EE2687A59D006D7948 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE1627EC2687A59D006D7948 /* LaunchScreen.storyboard */; };
 		BE16281326883565006D7948 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE16281226883565006D7948 /* SearchVC.swift */; };
 		BE16281526883591006D7948 /* SavedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE16281426883591006D7948 /* SavedVC.swift */; };
+		BE16281A26883B72006D7948 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE16281926883B72006D7948 /* UIView+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		BE1627EF2687A59D006D7948 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE16281226883565006D7948 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		BE16281426883591006D7948 /* SavedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedVC.swift; sourceTree = "<group>"; };
+		BE16281926883B72006D7948 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 		BE1627E02687A59A006D7948 /* FoodAppList */ = {
 			isa = PBXGroup;
 			children = (
+				BE16281826883B36006D7948 /* Extensions-Utilities */,
 				BE1628112687AB55006D7948 /* ServiceLayer */,
 				BE1628092687AAA2006D7948 /* SavedModule */,
 				BE1628052687AA82006D7948 /* RecipeModule */,
@@ -283,6 +286,14 @@
 			path = ServiceLayer;
 			sourceTree = "<group>";
 		};
+		BE16281826883B36006D7948 /* Extensions-Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				BE16281926883B72006D7948 /* UIView+Ext.swift */,
+			);
+			path = "Extensions-Utilities";
+			sourceTree = "<group>";
+		};
 		DE0F04B32A3079211E2727E1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -406,6 +417,7 @@
 			files = (
 				BE16281526883591006D7948 /* SavedVC.swift in Sources */,
 				BE16281326883565006D7948 /* SearchVC.swift in Sources */,
+				BE16281A26883B72006D7948 /* UIView+Ext.swift in Sources */,
 				BE1627E22687A59A006D7948 /* AppDelegate.swift in Sources */,
 				BE1627E42687A59A006D7948 /* SceneDelegate.swift in Sources */,
 			);
