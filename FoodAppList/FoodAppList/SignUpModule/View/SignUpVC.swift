@@ -101,7 +101,8 @@ class SignUpVC: UIViewController {
     }
     
     @objc func createAccountButtonAction() {
-        // TODO: There will be the loginAction to Firebase and after that we will go to SearchVC
+        guard let name = nameTF.text, let login = loginTF.text, let password = passwordTF.text, !name.isEmpty, !login.isEmpty, !password.isEmpty, let nv = navigationController else { return }
+        FirebaseStore().existUser(name: name, login: login, password: password, nv: nv)
     }
     
     private func setTitleLabelConstraints() {

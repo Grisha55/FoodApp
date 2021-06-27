@@ -25,11 +25,19 @@ class SearchVC: UIViewController {
 
         configureTableView()
         configureSearchController()
+        configureBarbutton()
         searchPresenter = SearchPresenter(searchView: self)
         searchPresenter?.viewDidLoad(tableView: tableView, product: "coffee")
     }
     
     // MARK: - Methods
+    func configureBarbutton() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(exitAction))
+    }
+    
+    @objc func exitAction() {
+        FirebaseStore().exitAction()
+    }
     
     func configureSearchController() {
         searchController.searchResultsUpdater = self
@@ -63,7 +71,7 @@ extension SearchVC: SearchView {
     }
 }
 
-// MARK: -
+// MARK: - UISearchResultsUpdating
 extension SearchVC: UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {

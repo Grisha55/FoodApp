@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginAndSignUpVC: UIViewController {
 
@@ -21,6 +22,8 @@ class LoginAndSignUpVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        
+        checkUserStatus()
         
         configureTitleLabel()
         configureLogInButton()
@@ -40,6 +43,20 @@ class LoginAndSignUpVC: UIViewController {
     
     
     // MARK: - Methods
+    
+    private func checkUserStatus() {
+        Auth.auth().addStateDidChangeListener { [weak self] auth, user in
+            guard let self = self else { return }
+            if user != nil {
+                let tabbarVC = TabBarVC()
+                tabbarVC.modalPresentationStyle = .fullScreen
+                self.present(tabbarVC, animated: true)
+                
+            } else {
+                return
+            }
+        }
+    }
     
     private func configureBigStackView() {
         view.addSubview(bigStackView)
