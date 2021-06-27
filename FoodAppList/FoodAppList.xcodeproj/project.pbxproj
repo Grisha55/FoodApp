@@ -25,6 +25,9 @@
 		BE16282A26888B05006D7948 /* LoginAndSignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE16282926888B04006D7948 /* LoginAndSignUpPresenter.swift */; };
 		BE16282C26888C09006D7948 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE16282B26888C09006D7948 /* SignUpVC.swift */; };
 		BE16282E26888C1B006D7948 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE16282D26888C1B006D7948 /* LoginVC.swift */; };
+		BE1628302688DBDE006D7948 /* FirebaseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE16282F2688DBDE006D7948 /* FirebaseStore.swift */; };
+		BE1628322688E295006D7948 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1628312688E295006D7948 /* DatabaseManager.swift */; };
+		BE1628352688E9D6006D7948 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1628342688E9D6006D7948 /* TabBarVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +53,9 @@
 		BE16282926888B04006D7948 /* LoginAndSignUpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAndSignUpPresenter.swift; sourceTree = "<group>"; };
 		BE16282B26888C09006D7948 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		BE16282D26888C1B006D7948 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		BE16282F2688DBDE006D7948 /* FirebaseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStore.swift; sourceTree = "<group>"; };
+		BE1628312688E295006D7948 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		BE1628342688E9D6006D7948 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +100,7 @@
 		BE1627E02687A59A006D7948 /* FoodAppList */ = {
 			isa = PBXGroup;
 			children = (
+				BE1628332688E9A3006D7948 /* TabbarModule */,
 				BE16281826883B36006D7948 /* Extensions-Utilities */,
 				BE1628112687AB55006D7948 /* ServiceLayer */,
 				BE1628092687AAA2006D7948 /* SavedModule */,
@@ -312,6 +319,8 @@
 			isa = PBXGroup;
 			children = (
 				BE16281D26884B46006D7948 /* NetworkingService.swift */,
+				BE16282F2688DBDE006D7948 /* FirebaseStore.swift */,
+				BE1628312688E295006D7948 /* DatabaseManager.swift */,
 			);
 			path = ServiceLayer;
 			sourceTree = "<group>";
@@ -322,6 +331,14 @@
 				BE16281926883B72006D7948 /* UIView+Ext.swift */,
 			);
 			path = "Extensions-Utilities";
+			sourceTree = "<group>";
+		};
+		BE1628332688E9A3006D7948 /* TabbarModule */ = {
+			isa = PBXGroup;
+			children = (
+				BE1628342688E9D6006D7948 /* TabBarVC.swift */,
+			);
+			path = TabbarModule;
 			sourceTree = "<group>";
 		};
 		DE0F04B32A3079211E2727E1 /* Frameworks */ = {
@@ -446,7 +463,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE1628322688E295006D7948 /* DatabaseManager.swift in Sources */,
 				BE16281526883591006D7948 /* SavedVC.swift in Sources */,
+				BE1628302688DBDE006D7948 /* FirebaseStore.swift in Sources */,
 				BE162820268852A0006D7948 /* SearchCell.swift in Sources */,
 				BE16282E26888C1B006D7948 /* LoginVC.swift in Sources */,
 				BE16282A26888B05006D7948 /* LoginAndSignUpPresenter.swift in Sources */,
@@ -458,6 +477,7 @@
 				BE1627E22687A59A006D7948 /* AppDelegate.swift in Sources */,
 				BE16281E26884B46006D7948 /* NetworkingService.swift in Sources */,
 				BE16282C26888C09006D7948 /* SignUpVC.swift in Sources */,
+				BE1628352688E9D6006D7948 /* TabBarVC.swift in Sources */,
 				BE16282626886A7A006D7948 /* LoginAndSignUpVC.swift in Sources */,
 				BE1627E42687A59A006D7948 /* SceneDelegate.swift in Sources */,
 			);

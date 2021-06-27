@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginVC: UIViewController {
 
@@ -88,7 +89,8 @@ class LoginVC: UIViewController {
     }
     
     @objc func buttonLogInAction() {
-        // TODO: There will be the loginAction to Firebase and after that we will go to SearchVC
+        guard let login = loginTF.text, let password = passwordTF.text, !login.isEmpty, !password.isEmpty, let nv = navigationController else { return }
+        FirebaseStore().signInWith(email: login, password: password, nv: nv)
     }
     
     private func setPasswordTFConstraints() {
