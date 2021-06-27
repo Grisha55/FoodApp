@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 protocol SearchViewPresenterProtocol {
     init(searchView: SearchView)
@@ -35,6 +36,16 @@ class SearchPresenter: SearchViewPresenterProtocol {
             case .success(let hits):
                 self.searchView?.onItemsRetrieval(hits: hits)
                 tableView.reloadData()
+            }
+        }
+    }
+    
+    func checkUserStatus(controller: UINavigationController) {
+        Auth.auth().addStateDidChangeListener { (auth, user) in
+            if user == nil {
+                controller.pushViewController(LoginAndSignUpVC(), animated: true)
+            } else {
+                // Transition to the RecipeVC and get food id to this controller
             }
         }
     }

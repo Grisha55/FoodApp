@@ -20,6 +20,7 @@
 		BE162820268852A0006D7948 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE16281F268852A0006D7948 /* SearchCell.swift */; };
 		BE16282226885A22006D7948 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE16282126885A22006D7948 /* SearchPresenter.swift */; };
 		BE16282426886767006D7948 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE16282326886767006D7948 /* GoogleService-Info.plist */; };
+		BE16282626886A7A006D7948 /* LoginAndSignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE16282526886A7A006D7948 /* LoginAndSignUpVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		BE16281F268852A0006D7948 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		BE16282126885A22006D7948 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
 		BE16282326886767006D7948 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BE16282526886A7A006D7948 /* LoginAndSignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAndSignUpVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 		BE1627F72687A9EB006D7948 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BE16282526886A7A006D7948 /* LoginAndSignUpVC.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				BE16281C26884B01006D7948 /* FoodModel.swift in Sources */,
 				BE1627E22687A59A006D7948 /* AppDelegate.swift in Sources */,
 				BE16281E26884B46006D7948 /* NetworkingService.swift in Sources */,
+				BE16282626886A7A006D7948 /* LoginAndSignUpVC.swift in Sources */,
 				BE1627E42687A59A006D7948 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

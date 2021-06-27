@@ -70,7 +70,13 @@ extension SearchVC: UISearchResultsUpdating {
 }
 
 // MARK: - UITableViewDelegate
-extension SearchVC: UITableViewDelegate {}
+extension SearchVC: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let nv = navigationController else { return }
+        searchPresenter?.checkUserStatus(controller: nv)
+    }
+}
 
 // MARK: - UITableViewDataSource
 extension SearchVC: UITableViewDataSource {
