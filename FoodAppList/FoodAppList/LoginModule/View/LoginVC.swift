@@ -36,6 +36,7 @@ class LoginVC: UIViewController {
         setBigStackViewConstraints()
     }
     
+    // MARK: - Methods
     private func configureBigStackView() {
         view.addSubview(bigStackView)
         bigStackView.axis = .vertical
