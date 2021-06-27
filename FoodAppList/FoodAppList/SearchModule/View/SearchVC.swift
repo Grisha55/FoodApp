@@ -32,8 +32,11 @@ class SearchVC: UIViewController {
     // MARK: - Methods
     
     func configureSearchController() {
-        navigationItem.searchController = searchController
         searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
     }
     
     func configureTableView() {

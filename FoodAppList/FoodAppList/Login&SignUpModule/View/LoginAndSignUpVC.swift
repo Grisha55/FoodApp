@@ -16,6 +16,7 @@ class LoginAndSignUpVC: UIViewController {
     private let logInButton = UIButton()
     private let questionLabel = UILabel()
     private let signInButton = UIButton()
+    private var loginAndSignUpPresenter: LoginAndSignUpPresenter?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +34,8 @@ class LoginAndSignUpVC: UIViewController {
         setTitleLabelConstraints()
         setLogInButtonConstraints()
         setSignInButtonConstraints()
+        
+        loginAndSignUpPresenter = LoginAndSignUpPresenter()
     }
     
     
@@ -76,7 +79,8 @@ class LoginAndSignUpVC: UIViewController {
     }
     
     @objc func buttonLogInAction() {
-        print("touched!")
+        guard let nv = navigationController else { return }
+        loginAndSignUpPresenter?.transitionToLoginVC(nv: nv)
     }
     
     private func configureQuestionLabel() {
@@ -86,18 +90,19 @@ class LoginAndSignUpVC: UIViewController {
     }
     
     private func configureSignInButton() {
-        signInButton.setTitle("Sign In", for: .normal)
+        signInButton.setTitle("Sign Up", for: .normal)
         signInButton.setTitleColor(.black, for: .normal)
         signInButton.titleLabel?.font = titleLabel.font.withSize(25)
         signInButton.backgroundColor = .white
         signInButton.layer.cornerRadius = 8
         signInButton.layer.borderWidth = 1
         signInButton.layer.borderColor = UIColor.black.cgColor
-        signInButton.addTarget(self, action: #selector(buttonSignInAction), for: .touchUpInside)
+        signInButton.addTarget(self, action: #selector(buttonSignUpAction), for: .touchUpInside)
     }
     
-    @objc func buttonSignInAction() {
-        print("touched!!")
+    @objc func buttonSignUpAction() {
+        guard let nv = navigationController else { return }
+        loginAndSignUpPresenter?.transitionToSignUpVC(nv: nv)
     }
 
     private func setLogInButtonConstraints() {
