@@ -10,9 +10,10 @@
 		0486F7B5E917C7F829C6B0E7 /* Pods_FoodAppList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAC80EC6E46D3E308A27CF89 /* Pods_FoodAppList.framework */; };
 		BE1627E22687A59A006D7948 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1627E12687A59A006D7948 /* AppDelegate.swift */; };
 		BE1627E42687A59A006D7948 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1627E32687A59A006D7948 /* SceneDelegate.swift */; };
-		BE1627E62687A59A006D7948 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1627E52687A59A006D7948 /* ViewController.swift */; };
 		BE1627EB2687A59D006D7948 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE1627EA2687A59D006D7948 /* Assets.xcassets */; };
 		BE1627EE2687A59D006D7948 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE1627EC2687A59D006D7948 /* LaunchScreen.storyboard */; };
+		BE16281326883565006D7948 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE16281226883565006D7948 /* SearchVC.swift */; };
+		BE16281526883591006D7948 /* SavedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE16281426883591006D7948 /* SavedVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,10 +23,11 @@
 		BE1627DE2687A59A006D7948 /* FoodAppList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodAppList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE1627E12687A59A006D7948 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE1627E32687A59A006D7948 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BE1627E52687A59A006D7948 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BE1627EA2687A59D006D7948 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE1627ED2687A59D006D7948 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE1627EF2687A59D006D7948 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE16281226883565006D7948 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		BE16281426883591006D7948 /* SavedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,16 +73,14 @@
 			isa = PBXGroup;
 			children = (
 				BE1628112687AB55006D7948 /* ServiceLayer */,
-				BE16280D2687AADE006D7948 /* TabBarModule */,
 				BE1628092687AAA2006D7948 /* SavedModule */,
 				BE1628052687AA82006D7948 /* RecipeModule */,
-				BE1628012687AA53006D7948 /* HomeModule */,
+				BE1628012687AA53006D7948 /* SearchModule */,
 				BE1627FD2687AA26006D7948 /* SignUpModule */,
 				BE1627F92687AA02006D7948 /* LoginModule */,
 				BE1627F52687A98B006D7948 /* Login&SignUpModule */,
 				BE1627E12687A59A006D7948 /* AppDelegate.swift */,
 				BE1627E32687A59A006D7948 /* SceneDelegate.swift */,
-				BE1627E52687A59A006D7948 /* ViewController.swift */,
 				BE1627EA2687A59D006D7948 /* Assets.xcassets */,
 				BE1627EC2687A59D006D7948 /* LaunchScreen.storyboard */,
 				BE1627EF2687A59D006D7948 /* Info.plist */,
@@ -181,14 +181,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		BE1628012687AA53006D7948 /* HomeModule */ = {
+		BE1628012687AA53006D7948 /* SearchModule */ = {
 			isa = PBXGroup;
 			children = (
 				BE1628042687AA70006D7948 /* Model */,
 				BE1628032687AA6A006D7948 /* View */,
 				BE1628022687AA63006D7948 /* Presenter */,
 			);
-			path = HomeModule;
+			path = SearchModule;
 			sourceTree = "<group>";
 		};
 		BE1628022687AA63006D7948 /* Presenter */ = {
@@ -201,6 +201,7 @@
 		BE1628032687AA6A006D7948 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BE16281226883565006D7948 /* SearchVC.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -263,42 +264,12 @@
 		BE16280B2687AABA006D7948 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BE16281426883591006D7948 /* SavedVC.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
 		BE16280C2687AAC0006D7948 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		BE16280D2687AADE006D7948 /* TabBarModule */ = {
-			isa = PBXGroup;
-			children = (
-				BE1628102687AAF9006D7948 /* Model */,
-				BE16280F2687AAF2006D7948 /* View */,
-				BE16280E2687AAEC006D7948 /* Presenter */,
-			);
-			path = TabBarModule;
-			sourceTree = "<group>";
-		};
-		BE16280E2687AAEC006D7948 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
-		BE16280F2687AAF2006D7948 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		BE1628102687AAF9006D7948 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -433,7 +404,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE1627E62687A59A006D7948 /* ViewController.swift in Sources */,
+				BE16281526883591006D7948 /* SavedVC.swift in Sources */,
+				BE16281326883565006D7948 /* SearchVC.swift in Sources */,
 				BE1627E22687A59A006D7948 /* AppDelegate.swift in Sources */,
 				BE1627E42687A59A006D7948 /* SceneDelegate.swift in Sources */,
 			);
