@@ -46,6 +46,7 @@ class SearchPresenter: SearchViewPresenterProtocol {
                 controller.pushViewController(LoginAndSignUpVC(), animated: true)
             } else {
                 // Transition to the RecipeVC and get food id to this controller
+                controller.pushViewController(RecipeVC(), animated: true)
             }
         }
     }
