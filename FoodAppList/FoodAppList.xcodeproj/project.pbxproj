@@ -15,6 +15,11 @@
 		BE16281326883565006D7948 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE16281226883565006D7948 /* SearchVC.swift */; };
 		BE16281526883591006D7948 /* SavedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE16281426883591006D7948 /* SavedVC.swift */; };
 		BE16281A26883B72006D7948 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE16281926883B72006D7948 /* UIView+Ext.swift */; };
+		BE16281C26884B01006D7948 /* FoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE16281B26884B01006D7948 /* FoodModel.swift */; };
+		BE16281E26884B46006D7948 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE16281D26884B46006D7948 /* NetworkingService.swift */; };
+		BE162820268852A0006D7948 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE16281F268852A0006D7948 /* SearchCell.swift */; };
+		BE16282226885A22006D7948 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE16282126885A22006D7948 /* SearchPresenter.swift */; };
+		BE16282426886767006D7948 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE16282326886767006D7948 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +35,11 @@
 		BE16281226883565006D7948 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		BE16281426883591006D7948 /* SavedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedVC.swift; sourceTree = "<group>"; };
 		BE16281926883B72006D7948 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		BE16281B26884B01006D7948 /* FoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodModel.swift; sourceTree = "<group>"; };
+		BE16281D26884B46006D7948 /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
+		BE16281F268852A0006D7948 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
+		BE16282126885A22006D7948 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
+		BE16282326886767006D7948 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +96,7 @@
 				BE1627E32687A59A006D7948 /* SceneDelegate.swift */,
 				BE1627EA2687A59D006D7948 /* Assets.xcassets */,
 				BE1627EC2687A59D006D7948 /* LaunchScreen.storyboard */,
+				BE16282326886767006D7948 /* GoogleService-Info.plist */,
 				BE1627EF2687A59D006D7948 /* Info.plist */,
 			);
 			path = FoodAppList;
@@ -197,6 +208,7 @@
 		BE1628022687AA63006D7948 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				BE16282126885A22006D7948 /* SearchPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -205,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				BE16281226883565006D7948 /* SearchVC.swift */,
+				BE16281F268852A0006D7948 /* SearchCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -212,6 +225,7 @@
 		BE1628042687AA70006D7948 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BE16281B26884B01006D7948 /* FoodModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -282,6 +296,7 @@
 		BE1628112687AB55006D7948 /* ServiceLayer */ = {
 			isa = PBXGroup;
 			children = (
+				BE16281D26884B46006D7948 /* NetworkingService.swift */,
 			);
 			path = ServiceLayer;
 			sourceTree = "<group>";
@@ -362,6 +377,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE1627EE2687A59D006D7948 /* LaunchScreen.storyboard in Resources */,
+				BE16282426886767006D7948 /* GoogleService-Info.plist in Resources */,
 				BE1627EB2687A59D006D7948 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -416,9 +432,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE16281526883591006D7948 /* SavedVC.swift in Sources */,
+				BE162820268852A0006D7948 /* SearchCell.swift in Sources */,
+				BE16282226885A22006D7948 /* SearchPresenter.swift in Sources */,
 				BE16281326883565006D7948 /* SearchVC.swift in Sources */,
 				BE16281A26883B72006D7948 /* UIView+Ext.swift in Sources */,
+				BE16281C26884B01006D7948 /* FoodModel.swift in Sources */,
 				BE1627E22687A59A006D7948 /* AppDelegate.swift in Sources */,
+				BE16281E26884B46006D7948 /* NetworkingService.swift in Sources */,
 				BE1627E42687A59A006D7948 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
