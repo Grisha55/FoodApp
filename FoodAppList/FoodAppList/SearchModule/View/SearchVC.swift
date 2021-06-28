@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 protocol SearchView: AnyObject {
     func onItemsRetrieval(hits: [Hit])
@@ -50,7 +51,7 @@ class SearchVC: UIViewController {
     func configureTableView() {
         view.addSubview(tableView)
         setTableViewDelegates()
-        tableView.rowHeight = 100
+        tableView.rowHeight = 400
         tableView.register(SearchCell.self, forCellReuseIdentifier: searchCell)
         tableView.pin(to: view)
     }
@@ -84,6 +85,7 @@ extension SearchVC: UISearchResultsUpdating {
 extension SearchVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         guard let nv = navigationController else { return }
         searchPresenter?.checkUserStatus(controller: nv, indexPath: indexPath)
     }
@@ -100,7 +102,13 @@ extension SearchVC: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: searchCell, for: indexPath) as? SearchCell else { return UITableViewCell() }
         let hit = hits[indexPath.row]
         guard let title = hit.recipe?.label else { return UITableViewCell() }
-        cell.configureCell(title: title)
+        var healthString = ""
+        guard let healthLabels = hit.recipe?.healthLabels else { return UITableViewCell() }
+        for str in healthLabels {
+            healthString += String("\(str)/ ")
+        }
+        guard let photoString = hit.recipe?.image else { return UITableViewCell() }
+        cell.configureCell(title: title, healthLabel: healthString, foodPhotoURL: photoString)
         return cell
     }
 }
