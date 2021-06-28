@@ -41,9 +41,19 @@ class RecipeVC: UIViewController {
         
         setupFoodPhoto()
         setupCaloriesLabel()
+        setupRecipeTextView()
     }
     
     // MARK: Methods
+    private func setupRecipeTextView() {
+        guard let ingredients = RecipeVC.hit.recipe?.ingredientLines else { return }
+        var recipe = ""
+        ingredients.forEach { ingredient in
+            recipe += "\n - \(ingredient)"
+        }
+        recipeTextView.text = recipe
+    }
+    
     private func setupPeopleCountLabel() {
         peopleCount = String(Int(RecipeVC.hit.recipe?.yield ?? 0))
     }
@@ -73,7 +83,7 @@ class RecipeVC: UIViewController {
         view.addSubview(recipeTextView)
         recipeTextView.textColor = .black
         recipeTextView.isEditable = false
-        recipeTextView.backgroundColor = .gray
+        recipeTextView.font = .systemFont(ofSize: 20)
     }
     
     private func configureStackViewForParameters() {
