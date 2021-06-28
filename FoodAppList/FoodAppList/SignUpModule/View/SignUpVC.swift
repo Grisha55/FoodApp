@@ -81,6 +81,7 @@ class SignUpVC: UIViewController {
         loginTF.layer.cornerRadius = 8
         loginTF.layer.borderWidth = 1
         loginTF.layer.borderColor = UIColor.black.cgColor
+        loginTF.autocapitalizationType = .none
     }
     
     private func configurePasswordTF() {
@@ -88,6 +89,8 @@ class SignUpVC: UIViewController {
         passwordTF.layer.cornerRadius = 8
         passwordTF.layer.borderWidth = 1
         passwordTF.layer.borderColor = UIColor.black.cgColor
+        passwordTF.autocapitalizationType = .none
+        passwordTF.isSecureTextEntry = true
     }
     
     private func configureCreateAccountButton() {
@@ -107,7 +110,7 @@ class SignUpVC: UIViewController {
     
     private func setTitleLabelConstraints() {
         titleLabel.translatesAutoresizingMaskIntoConstraints                             = false
-        titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 150).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 120).isActive = true
         titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive        = true
     }
     
@@ -142,7 +145,7 @@ class SignUpVC: UIViewController {
     
     private func setBigStackViewConstraints() {
         bigStackView.translatesAutoresizingMaskIntoConstraints                                      = false
-        bigStackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 150).isActive = true
+        bigStackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 100).isActive = true
         bigStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive               = true
         bigStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive                 = true
     }
