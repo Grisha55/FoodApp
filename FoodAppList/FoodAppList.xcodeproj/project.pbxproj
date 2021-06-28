@@ -28,6 +28,10 @@
 		BE1628302688DBDE006D7948 /* FirebaseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE16282F2688DBDE006D7948 /* FirebaseStore.swift */; };
 		BE1628322688E295006D7948 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1628312688E295006D7948 /* DatabaseManager.swift */; };
 		BE1628352688E9D6006D7948 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1628342688E9D6006D7948 /* TabBarVC.swift */; };
+		BEFB1B76268A4DB400BC6F12 /* RecipePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFB1B75268A4DB400BC6F12 /* RecipePresenter.swift */; };
+		BEFB1B78268A4DFD00BC6F12 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFB1B77268A4DFD00BC6F12 /* RealmManager.swift */; };
+		BEFB1B7A268A4E3B00BC6F12 /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFB1B79268A4E3B00BC6F12 /* RecipeModel.swift */; };
+		BEFB1B7C268A54D200BC6F12 /* SavedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFB1B7B268A54D200BC6F12 /* SavedCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +60,10 @@
 		BE16282F2688DBDE006D7948 /* FirebaseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStore.swift; sourceTree = "<group>"; };
 		BE1628312688E295006D7948 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		BE1628342688E9D6006D7948 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
+		BEFB1B75268A4DB400BC6F12 /* RecipePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipePresenter.swift; sourceTree = "<group>"; };
+		BEFB1B77268A4DFD00BC6F12 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		BEFB1B79268A4E3B00BC6F12 /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
+		BEFB1B7B268A54D200BC6F12 /* SavedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,6 +272,7 @@
 		BE1628062687AA8D006D7948 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				BEFB1B75268A4DB400BC6F12 /* RecipePresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -279,6 +288,7 @@
 		BE1628082687AA9A006D7948 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BEFB1B79268A4E3B00BC6F12 /* RecipeModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -304,6 +314,7 @@
 			isa = PBXGroup;
 			children = (
 				BE16281426883591006D7948 /* SavedVC.swift */,
+				BEFB1B7B268A54D200BC6F12 /* SavedCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -321,6 +332,7 @@
 				BE16281D26884B46006D7948 /* NetworkingService.swift */,
 				BE16282F2688DBDE006D7948 /* FirebaseStore.swift */,
 				BE1628312688E295006D7948 /* DatabaseManager.swift */,
+				BEFB1B77268A4DFD00BC6F12 /* RealmManager.swift */,
 			);
 			path = ServiceLayer;
 			sourceTree = "<group>";
@@ -471,13 +483,17 @@
 				BE16282A26888B05006D7948 /* LoginAndSignUpPresenter.swift in Sources */,
 				BE16282226885A22006D7948 /* SearchPresenter.swift in Sources */,
 				BE16282826887B0D006D7948 /* RecipeVC.swift in Sources */,
+				BEFB1B76268A4DB400BC6F12 /* RecipePresenter.swift in Sources */,
 				BE16281326883565006D7948 /* SearchVC.swift in Sources */,
+				BEFB1B7C268A54D200BC6F12 /* SavedCell.swift in Sources */,
 				BE16281A26883B72006D7948 /* UIView+Ext.swift in Sources */,
+				BEFB1B78268A4DFD00BC6F12 /* RealmManager.swift in Sources */,
 				BE16281C26884B01006D7948 /* FoodModel.swift in Sources */,
 				BE1627E22687A59A006D7948 /* AppDelegate.swift in Sources */,
 				BE16281E26884B46006D7948 /* NetworkingService.swift in Sources */,
 				BE16282C26888C09006D7948 /* SignUpVC.swift in Sources */,
 				BE1628352688E9D6006D7948 /* TabBarVC.swift in Sources */,
+				BEFB1B7A268A4E3B00BC6F12 /* RecipeModel.swift in Sources */,
 				BE16282626886A7A006D7948 /* LoginAndSignUpVC.swift in Sources */,
 				BE1627E42687A59A006D7948 /* SceneDelegate.swift in Sources */,
 			);

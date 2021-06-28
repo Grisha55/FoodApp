@@ -42,9 +42,23 @@ class RecipeVC: UIViewController {
         setupFoodPhoto()
         setupCaloriesLabel()
         setupRecipeTextView()
+        setupNavigationBar()
     }
     
     // MARK: Methods
+    private func setupNavigationBar() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(buttonSaveAction))
+    }
+    
+    @objc func buttonSaveAction() {
+        let recipeModel = RecipeModel()
+        guard let title = RecipeVC.hit.recipe?.label else { return }
+        recipeModel.title = title
+        guard let photoString = RecipeVC.hit.recipe?.image else { return }
+        recipeModel.photoString = photoString
+        RealmManager().saveToRealm(recipeModel: recipeModel)
+    }
+    
     private func setupRecipeTextView() {
         guard let ingredients = RecipeVC.hit.recipe?.ingredientLines else { return }
         var recipe = ""
