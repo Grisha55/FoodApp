@@ -6,32 +6,130 @@
 //
 
 import UIKit
+import SDWebImage
 
 class RecipeVC: UIViewController {
 
     // MARK: - Properties
     private var foodPhoto = UIImageView()
+    private let minutesLabel = UILabel()
+    private var minutesCount = "30"
+    private var caloriesLabel = UILabel()
+    private let peopleLabel = UILabel()
+    private var peopleCount = "3"
+    private let stackViewForParameters = UIStackView()
+    private let recipeTextView = UITextView()
+    static var hit = Hit()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.backgroundColor = .white
+        title = RecipeVC.hit.recipe?.label
+        setupMinutes()
+        setupPeopleCountLabel()
+        
         configureFoodPhoto()
+        configureMinutesLabel()
+        configureCaloriesLabel()
+        configurePeopleLabel()
+        configureStackViewForParameters()
+        configureRecipeTextView()
+        
         setFoodPhotoConstraints()
+        setRecipeTextViewConstraints()
+        setStackViewForParametersConstraints()
+        
+        setupFoodPhoto()
+        setupCaloriesLabel()
     }
-
+    
+    // MARK: Methods
+    private func setupPeopleCountLabel() {
+        peopleCount = String(Int(RecipeVC.hit.recipe?.yield ?? 0))
+    }
+    
+    private func setupCaloriesLabel() {
+        guard let calories = RecipeVC.hit.recipe?.calories else { return }
+        caloriesLabel.text = String("\(Int(calories)) calories")
+    }
+    
+    private func setupMinutes() {
+        guard let minutes = RecipeVC.hit.recipe?.totalTime else { return }
+        minutesCount = String(minutes)
+    }
+    
+    private func setupFoodPhoto() {
+        guard let urlString = RecipeVC.hit.recipe?.image else { return }
+        foodPhoto.sd_setImage(with: URL(string: urlString), completed: .none)
+    }
+    
     private func configureFoodPhoto() {
         view.addSubview(foodPhoto)
         foodPhoto.layer.cornerRadius = 20
         foodPhoto.clipsToBounds = true
-        foodPhoto.backgroundColor = .systemRed
+    }
+    
+    private func configureRecipeTextView() {
+        view.addSubview(recipeTextView)
+        recipeTextView.textColor = .black
+        recipeTextView.isEditable = false
+        recipeTextView.backgroundColor = .gray
+    }
+    
+    private func configureStackViewForParameters() {
+        view.addSubview(stackViewForParameters)
+        stackViewForParameters.axis = .horizontal
+        stackViewForParameters.alignment = .top
+        stackViewForParameters.distribution = .fillEqually
+        stackViewForParameters.spacing = 20
+        
+        stackViewForParameters.addArrangedSubview(minutesLabel)
+        stackViewForParameters.addArrangedSubview(caloriesLabel)
+        stackViewForParameters.addArrangedSubview(peopleLabel)
+    }
+    
+    private func configureMinutesLabel() {
+        minutesLabel.text = "\(minutesCount) minutes"
+        minutesLabel.textColor = .black
+        minutesLabel.font = minutesLabel.font.withSize(20)
+        minutesLabel.textAlignment = .center
+    }
+    
+    private func configureCaloriesLabel() {
+        caloriesLabel.text = "N/F"
+        caloriesLabel.textColor = .black
+        caloriesLabel.font = caloriesLabel.font.withSize(20)
+        caloriesLabel.textAlignment = .center
+    }
+    
+    private func configurePeopleLabel() {
+        peopleLabel.text = "\(peopleCount) people"
+        peopleLabel.textColor = .black
+        peopleLabel.font = peopleLabel.font.withSize(20)
+        peopleLabel.textAlignment = .center
     }
     
     private func setFoodPhotoConstraints() {
-        foodPhoto.translatesAutoresizingMaskIntoConstraints                        = false
-        foodPhoto.topAnchor.constraint(equalTo: view.topAnchor).isActive           = true
-        foodPhoto.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        foodPhoto.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive   = true
-        foodPhoto.heightAnchor.constraint(equalToConstant: 300).isActive           = true
+        foodPhoto.translatesAutoresizingMaskIntoConstraints                             = false
+        foodPhoto.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
+        foodPhoto.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive      = true
+        foodPhoto.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive        = true
+        foodPhoto.heightAnchor.constraint(equalToConstant: 250).isActive                = true
+    }
+    
+    private func setRecipeTextViewConstraints() {
+        recipeTextView.translatesAutoresizingMaskIntoConstraints                                                 = false
+        recipeTextView.topAnchor.constraint(equalTo: stackViewForParameters.bottomAnchor, constant: 30).isActive = true
+        recipeTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive           = true
+        recipeTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive              = true
+        recipeTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive                              = true
+    }
+    
+    private func setStackViewForParametersConstraints() {
+        stackViewForParameters.translatesAutoresizingMaskIntoConstraints                                   = false
+        stackViewForParameters.topAnchor.constraint(equalTo: foodPhoto.bottomAnchor, constant: 1).isActive = true
+        stackViewForParameters.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive              = true
+        stackViewForParameters.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive            = true
     }
     
 }

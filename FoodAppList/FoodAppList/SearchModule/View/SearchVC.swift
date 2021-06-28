@@ -85,7 +85,7 @@ extension SearchVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let nv = navigationController else { return }
-        searchPresenter?.checkUserStatus(controller: nv)
+        searchPresenter?.checkUserStatus(controller: nv, indexPath: indexPath)
     }
 }
 
