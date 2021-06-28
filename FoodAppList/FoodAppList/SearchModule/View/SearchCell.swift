@@ -10,35 +10,90 @@ import UIKit
 class SearchCell: UITableViewCell {
 
     // MARK: - Properties
-    private var foodTitleLabel = UILabel()
+    private let foodTitleLabel = UILabel()
+    private var foodPhotoImageView = UIImageView()
+    private let healthLabel = UILabel()
+    private let backView = UIView()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        addSubview(foodTitleLabel)
         
+        addSubview(backView)
+        
+        configureBackView()
         configureFoodTitleLabel()
+        configureFoodPhotoImageView()
+        configureHealthLabel()
+        
+        setBackViewConstraints()
         setFoodTitleLabelConstraints()
+        setFoodPhotoImageViewConstraints()
+        setHealthLabelConstraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    func configureCell(title: String) {
+    // MARK: - Methods
+    func configureCell(title: String, healthLabel: String, foodPhotoURL: String) {
         self.foodTitleLabel.text = title
+        self.healthLabel.text = healthLabel
+        self.foodPhotoImageView.sd_setImage(with: URL(string: foodPhotoURL), completed: .none)
+    }
+    
+    private func configureBackView() {
+        backView.backgroundColor = .white
+        backView.addSubview(foodTitleLabel)
+        backView.addSubview(foodPhotoImageView)
+        backView.addSubview(healthLabel)
+    }
+    
+    private func configureHealthLabel() {
+        healthLabel.textColor = .black
+        healthLabel.font = healthLabel.font.withSize(20)
+        healthLabel.numberOfLines = 0
+    }
+    
+    private func configureFoodPhotoImageView() {
+        foodPhotoImageView.clipsToBounds = true
+        foodPhotoImageView.backgroundColor = .yellow
     }
     
     private func configureFoodTitleLabel() {
         foodTitleLabel.textAlignment = .center
-        foodTitleLabel.numberOfLines = 1
+        foodTitleLabel.numberOfLines = 0
         foodTitleLabel.adjustsFontSizeToFitWidth = true
-        foodTitleLabel.text = "some text"
+        foodTitleLabel.font = foodTitleLabel.font.withSize(20)
+    }
+    
+    private func setHealthLabelConstraints() {
+        healthLabel.translatesAutoresizingMaskIntoConstraints                                                  = false
+        healthLabel.topAnchor.constraint(equalTo: foodTitleLabel.bottomAnchor, constant: 10).isActive          = true
+        healthLabel.leadingAnchor.constraint(equalTo: backView.leadingAnchor).isActive                         = true
+        healthLabel.bottomAnchor.constraint(equalTo: backView.bottomAnchor).isActive                           = true
+        healthLabel.trailingAnchor.constraint(equalTo: backView.trailingAnchor).isActive                       = true
+    }
+    
+    private func setFoodPhotoImageViewConstraints() {
+        foodPhotoImageView.translatesAutoresizingMaskIntoConstraints                            = false
+        foodPhotoImageView.topAnchor.constraint(equalTo: backView.topAnchor).isActive           = true
+        foodPhotoImageView.trailingAnchor.constraint(equalTo: backView.trailingAnchor).isActive = true
+        foodPhotoImageView.leadingAnchor.constraint(equalTo: backView.leadingAnchor).isActive   = true
     }
     
     private func setFoodTitleLabelConstraints() {
-        foodTitleLabel.translatesAutoresizingMaskIntoConstraints                       = false
-        foodTitleLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive       = true
-        foodTitleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10).isActive = true
+        foodTitleLabel.translatesAutoresizingMaskIntoConstraints                                                      = false
+        foodTitleLabel.leadingAnchor.constraint(equalTo: backView.leadingAnchor).isActive                             = true
+        foodTitleLabel.topAnchor.constraint(equalTo: foodPhotoImageView.bottomAnchor, constant: 10).isActive          = true
+        foodTitleLabel.trailingAnchor.constraint(equalTo: backView.trailingAnchor).isActive                           = true
+    }
+    
+    private func setBackViewConstraints() {
+        backView.translatesAutoresizingMaskIntoConstraints                                  = false
+        backView.topAnchor.constraint(equalTo: topAnchor, constant: 10).isActive            = true
+        backView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10).isActive     = true
+        backView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
+        backView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive    = true
     }
     
 }
