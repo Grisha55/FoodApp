@@ -34,17 +34,20 @@ class SearchPresenter: SearchViewPresenterProtocol {
             case .failure(let error):
                 print(error.localizedDescription)
             case .success(let hits):
+                self.hits = hits
                 self.searchView?.onItemsRetrieval(hits: hits)
                 tableView.reloadData()
             }
         }
     }
     
-    func checkUserStatus(controller: UINavigationController) {
+    func checkUserStatus(controller: UINavigationController, indexPath: IndexPath) {
+        guard let hits = hits else { return }
         Auth.auth().addStateDidChangeListener { (auth, user) in
             if user == nil {
                 controller.pushViewController(LoginAndSignUpVC(), animated: true)
             } else {
+                RecipeVC.hit = hits[indexPath.row]
                 controller.pushViewController(RecipeVC(), animated: true)
             }
         }
