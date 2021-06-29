@@ -7,6 +7,7 @@
 
 import UIKit
 import RealmSwift
+import Gemini
 
 class RealmManager {
     
@@ -17,10 +18,11 @@ class RealmManager {
         try? realm.commitWrite()
     }
     
-    func deleteFromRealm(recipeModel: RecipeModel) {
+    func deleteFromRealm(collectionView: GeminiCollectionView, recipeModel: RecipeModel) {
         guard let realm = try? Realm() else { return }
         realm.beginWrite()
         realm.delete(recipeModel)
+        collectionView.reloadData()
         try? realm.commitWrite()
     }
     

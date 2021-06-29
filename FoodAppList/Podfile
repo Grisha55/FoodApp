@@ -12,4 +12,5 @@ target 'FoodAppList' do
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'SDWebImage'
+  pod 'Gemini'
 end
