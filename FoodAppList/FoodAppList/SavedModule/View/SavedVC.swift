@@ -7,13 +7,15 @@
 
 import UIKit
 import RealmSwift
+import Gemini
 
 class SavedVC: UIViewController {
 
     // MARK: - Properties
-    private var collectionView: UICollectionView?
+    private var collectionView: GeminiCollectionView?
     private var recipies: Results<RecipeModel>?
     private let savedCell = "recipeCell"
+    private var tappedIndexPath: IndexPath?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -25,20 +27,25 @@ class SavedVC: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         configureCollectionView()
+        configureNavigationBar()
     }
     
     // MARK: - Methods
+    private func configureNavigationBar() {
+        title = "Saved"
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
     private func configureCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: view.frame.width - 20, height: view.frame.height - 250)
+        layout.itemSize = CGSize(width: view.frame.width - 90, height: view.frame.height - 300)
         
-        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView = GeminiCollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView?.backgroundColor = .white
         collectionView?.showsHorizontalScrollIndicator = false
         collectionView?.showsVerticalScrollIndicator = false
         collectionView?.isDirectionalLockEnabled = false
-        collectionView?.isPagingEnabled = true
         
         guard let collectionView = collectionView else { return }
         collectionView.register(SavedCell.self, forCellWithReuseIdentifier: savedCell)
@@ -46,24 +53,24 @@ class SavedVC: UIViewController {
         collectionView.dataSource = self
         view.addSubview(collectionView)
         collectionView.frame = view.bounds
+        collectionView.gemini
+            .rollRotationAnimation()
+            .degree(45)
+            .rollEffect(.rollUp)
     }
     
 }
 
-//MARK: - UICollectionViewDelegate
+// MARK: - UICollectionViewDelegate
 extension SavedVC: UICollectionViewDelegate {
     
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        UIView.animate(withDuration: 0.5) { [weak self] in
-            guard let self = self else { return }
-            self.collectionView?.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
-        }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        collectionView?.animateVisibleCells()
     }
     
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        UIView.animate(withDuration: 0.5) { [weak self] in
-            guard let self = self else { return }
-            self.collectionView?.transform = .identity
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if let cell = cell as? SavedCell {
+            self.collectionView?.animateCell(cell)
         }
     }
 }
@@ -81,6 +88,20 @@ extension SavedVC: UICollectionViewDataSource {
         guard let recipies = recipies else { return UICollectionViewCell() }
         let recipe = recipies[indexPath.row]
         cell.configureCell(photoString: recipe.photoString, title: recipe.title)
+        self.collectionView?.animateCell(cell)
+        cell.savedCellDelegate = self
         return cell
+    }
+}
+
+// MARK: - SavedCellDelegate
+extension SavedVC: SavedCellDelegate {
+    func deleteAction(cell: SavedCell) {
+        if let indexPath = collectionView?.indexPath(for: cell) {
+            guard let recipies = recipies else { return }
+            guard let collectionView = collectionView else { return }
+            collectionView.deleteItems(at: [indexPath])
+            RealmManager().deleteFromRealm(collectionView: collectionView, recipeModel: recipies[indexPath.row])
+        }
     }
 }
