@@ -23,7 +23,7 @@ class RecipeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .systemYellow
         title = RecipeVC.hit.recipe?.label
         setupMinutes()
         setupPeopleCountLabel()
@@ -66,6 +66,8 @@ class RecipeVC: UIViewController {
             recipe += "\n - \(ingredient)"
         }
         recipeTextView.text = recipe
+        recipeTextView.backgroundColor = .systemYellow
+        recipeTextView.showsVerticalScrollIndicator = false
     }
     
     private func setupPeopleCountLabel() {

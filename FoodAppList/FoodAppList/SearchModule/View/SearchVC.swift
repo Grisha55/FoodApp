@@ -23,7 +23,7 @@ class SearchVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.backgroundColor = UIColor.init(red: 18/255, green: 51/255, blue: 24/255, alpha: 0)
         configureTableView()
         configureSearchController()
         configureBarbutton()
@@ -32,15 +32,17 @@ class SearchVC: UIViewController {
     }
     
     // MARK: - Methods
-    func configureBarbutton() {
+    private func configureBarbutton() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(exitAction))
+        navigationController?.navigationBar.barTintColor = UIColor.init(red: 18/255, green: 51/255, blue: 24/255, alpha: 1)
     }
     
     @objc func exitAction() {
         FirebaseStore().exitAction()
     }
     
-    func configureSearchController() {
+    private func configureSearchController() {
+        searchController.searchBar.backgroundColor = UIColor.init(red: 18/255, green: 51/255, blue: 24/255, alpha: 1)
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search"
@@ -48,15 +50,18 @@ class SearchVC: UIViewController {
         definesPresentationContext = true
     }
     
-    func configureTableView() {
+    private func configureTableView() {
         view.addSubview(tableView)
         setTableViewDelegates()
+        tableView.backgroundColor = UIColor.init(red: 18/255, green: 51/255, blue: 24/255, alpha: 1)
+        tableView.separatorColor = .black
+        tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
         tableView.rowHeight = 400
         tableView.register(SearchCell.self, forCellReuseIdentifier: searchCell)
         tableView.pin(to: view)
     }
     
-    func setTableViewDelegates() {
+    private func setTableViewDelegates() {
         tableView.delegate = self
         tableView.dataSource = self
     }

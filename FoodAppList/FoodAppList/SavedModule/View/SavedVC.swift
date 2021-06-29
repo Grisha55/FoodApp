@@ -25,7 +25,7 @@ class SavedVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .systemYellow
         configureCollectionView()
         configureNavigationBar()
     }
@@ -42,7 +42,7 @@ class SavedVC: UIViewController {
         layout.itemSize = CGSize(width: view.frame.width - 90, height: view.frame.height - 300)
         
         collectionView = GeminiCollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView?.backgroundColor = .white
+        collectionView?.backgroundColor = .systemYellow
         collectionView?.showsHorizontalScrollIndicator = false
         collectionView?.showsVerticalScrollIndicator = false
         collectionView?.isDirectionalLockEnabled = false
