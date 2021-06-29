@@ -13,7 +13,7 @@ class SearchCell: UITableViewCell {
     private let foodTitleLabel = UILabel()
     private var foodPhotoImageView = UIImageView()
     private let healthLabel = UILabel()
-    private let backView = UIView()
+    private var backView = UIView()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -94,6 +94,14 @@ class SearchCell: UITableViewCell {
         backView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10).isActive     = true
         backView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
         backView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive    = true
+    }
+    
+    internal override func prepareForReuse() {
+        super.prepareForReuse()
+        self.backView = UIView()
+        self.foodPhotoImageView.image = nil
+        self.foodTitleLabel.text = nil
+        self.healthLabel.text = nil
     }
     
 }
