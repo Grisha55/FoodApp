@@ -57,6 +57,7 @@ class SearchCell: UITableViewCell {
     private func configureFoodPhotoImageView() {
         foodPhotoImageView.clipsToBounds = true
         foodPhotoImageView.backgroundColor = .yellow
+        foodPhotoImageView.contentMode = .scaleToFill
     }
     
     private func configureFoodTitleLabel() {
@@ -67,25 +68,26 @@ class SearchCell: UITableViewCell {
     }
     
     private func setHealthLabelConstraints() {
-        healthLabel.translatesAutoresizingMaskIntoConstraints                                                  = false
-        healthLabel.topAnchor.constraint(equalTo: foodTitleLabel.bottomAnchor, constant: 10).isActive          = true
-        healthLabel.leadingAnchor.constraint(equalTo: backView.leadingAnchor).isActive                         = true
-        healthLabel.bottomAnchor.constraint(equalTo: backView.bottomAnchor).isActive                           = true
-        healthLabel.trailingAnchor.constraint(equalTo: backView.trailingAnchor).isActive                       = true
+        healthLabel.translatesAutoresizingMaskIntoConstraints                                         = false
+        healthLabel.topAnchor.constraint(equalTo: foodTitleLabel.bottomAnchor, constant: 10).isActive = true
+        healthLabel.leadingAnchor.constraint(equalTo: backView.leadingAnchor).isActive                = true
+        healthLabel.bottomAnchor.constraint(equalTo: backView.bottomAnchor).isActive                  = true
+        healthLabel.trailingAnchor.constraint(equalTo: backView.trailingAnchor).isActive              = true
     }
     
     private func setFoodPhotoImageViewConstraints() {
-        foodPhotoImageView.translatesAutoresizingMaskIntoConstraints                            = false
-        foodPhotoImageView.topAnchor.constraint(equalTo: backView.topAnchor).isActive           = true
-        foodPhotoImageView.trailingAnchor.constraint(equalTo: backView.trailingAnchor).isActive = true
-        foodPhotoImageView.leadingAnchor.constraint(equalTo: backView.leadingAnchor).isActive   = true
+        foodPhotoImageView.translatesAutoresizingMaskIntoConstraints                                  = false
+        foodPhotoImageView.topAnchor.constraint(equalTo: backView.topAnchor).isActive                 = true
+        foodPhotoImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive    = true
+        foodPhotoImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
+        foodPhotoImageView.heightAnchor.constraint(equalToConstant: 150).isActive                     = true
     }
     
     private func setFoodTitleLabelConstraints() {
-        foodTitleLabel.translatesAutoresizingMaskIntoConstraints                                                      = false
-        foodTitleLabel.leadingAnchor.constraint(equalTo: backView.leadingAnchor).isActive                             = true
-        foodTitleLabel.topAnchor.constraint(equalTo: foodPhotoImageView.bottomAnchor, constant: 10).isActive          = true
-        foodTitleLabel.trailingAnchor.constraint(equalTo: backView.trailingAnchor).isActive                           = true
+        foodTitleLabel.translatesAutoresizingMaskIntoConstraints                                             = false
+        foodTitleLabel.leadingAnchor.constraint(equalTo: backView.leadingAnchor).isActive                    = true
+        foodTitleLabel.topAnchor.constraint(equalTo: foodPhotoImageView.bottomAnchor, constant: 10).isActive = true
+        foodTitleLabel.trailingAnchor.constraint(equalTo: backView.trailingAnchor).isActive                  = true
     }
     
     private func setBackViewConstraints() {
