@@ -54,9 +54,10 @@ class SavedVC: UIViewController {
         view.addSubview(collectionView)
         collectionView.frame = view.bounds
         collectionView.gemini
-            .rollRotationAnimation()
-            .degree(45)
-            .rollEffect(.rollUp)
+            .circleRotationAnimation()
+            .radius(900)
+            .rotateDirection(.clockwise)
+            .itemRotationEnabled(true)
     }
     
 }

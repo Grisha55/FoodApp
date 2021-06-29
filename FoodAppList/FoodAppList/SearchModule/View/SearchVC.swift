@@ -55,7 +55,7 @@ class SearchVC: UIViewController {
         setTableViewDelegates()
         tableView.backgroundColor = UIColor.init(red: 18/255, green: 51/255, blue: 24/255, alpha: 1)
         tableView.separatorColor = .black
-        tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
+        tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0)
         tableView.rowHeight = 400
         tableView.register(SearchCell.self, forCellReuseIdentifier: searchCell)
         tableView.pin(to: view)
