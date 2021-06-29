@@ -17,7 +17,7 @@ class SearchCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+        self.backgroundColor = .systemYellow
         addSubview(backView)
         
         configureBackView()
@@ -42,7 +42,7 @@ class SearchCell: UITableViewCell {
     }
     
     private func configureBackView() {
-        backView.backgroundColor = .white
+        backView.backgroundColor = .systemYellow
         backView.addSubview(foodTitleLabel)
         backView.addSubview(foodPhotoImageView)
         backView.addSubview(healthLabel)

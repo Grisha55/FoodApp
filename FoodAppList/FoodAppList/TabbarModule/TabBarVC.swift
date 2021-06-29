@@ -20,8 +20,11 @@ class TabBarVC: UITabBarController {
         let savedVC = UINavigationController(rootViewController: SavedVC())
         searchVC.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
         savedVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
-        UITabBar.appearance().tintColor = .green
+        UITabBar.appearance().tintColor = UIColor.init(red: 18/255, green: 51/255, blue: 24/255, alpha: 0)
         self.viewControllers = [searchVC, savedVC]
+        tabBar.backgroundColor = UIColor.init(red: 18/255, green: 51/255, blue: 24/255, alpha: 0)
+        tabBar.barTintColor = UIColor(cgColor: CGColor(red: 18/255, green: 51/255, blue: 24/255, alpha: 0))
+        tabBar.tintColor = .green
     }
     
 }
