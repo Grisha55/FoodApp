@@ -92,8 +92,11 @@ class LoginVC: UIViewController {
     }
     
     @objc func buttonLogInAction() {
-        guard let login = loginTF.text, let password = passwordTF.text, !login.isEmpty, !password.isEmpty, let nv = navigationController else { return }
-        FirebaseStore().signInWith(email: login, password: password, nv: nv)
+        guard let login = loginTF.text, let password = passwordTF.text, !login.isEmpty, !password.isEmpty, let nv = navigationController else {
+            Alerts().loginAlert(controller: self)
+            return
+        }
+        FirebaseStore().signInWith(email: login, password: password, nv: nv, vc: self)
     }
     
     private func setPasswordTFConstraints() {
