@@ -8,8 +8,7 @@
 import Foundation
 import RealmSwift
 
-@objc
 class RecipeModel: Object, Codable {
-    dynamic var photoString: String = ""
-    dynamic var title: String = ""
+    @objc dynamic var photoString: String = ""
+    @objc dynamic var title: String = ""
 }

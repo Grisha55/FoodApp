@@ -24,9 +24,10 @@ class RealmManager {
         try? realm.commitWrite()
     }
     
-    func getDataFromRealm() -> Results<RecipeModel>? {
+    func getDataFromRealm(collectionView: UICollectionView) -> Results<RecipeModel>? {
         guard let realm = try? Realm() else { return nil }
         let recipies = realm.objects(RecipeModel.self)
+        collectionView.reloadData()
         return recipies
     }
     
