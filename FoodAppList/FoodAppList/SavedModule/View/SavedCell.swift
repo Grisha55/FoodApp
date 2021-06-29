@@ -17,8 +17,8 @@ class SavedCell: GeminiCell {
     // MARK: - Properties
     private let photoImageView = UIImageView()
     private let titleLabel = UILabel()
-    private let deleteButton = UIButton()
-    private let visualView = UIVisualEffectView()
+    private var deleteButton = UIButton()
+    private var visualView = UIVisualEffectView()
     weak var savedCellDelegate: SavedCellDelegate?
     
     override init(frame: CGRect) {
@@ -109,4 +109,13 @@ class SavedCell: GeminiCell {
         photoImageView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         photoImageView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive   = true
     }
+    
+    internal override func prepareForReuse() {
+        super.prepareForReuse()
+        self.photoImageView.image = nil
+        self.titleLabel.text = nil
+        self.deleteButton = UIButton()
+        self.visualView = UIVisualEffectView()
+    }
+    
 }
