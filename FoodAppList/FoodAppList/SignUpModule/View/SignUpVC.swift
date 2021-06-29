@@ -104,8 +104,11 @@ class SignUpVC: UIViewController {
     }
     
     @objc func createAccountButtonAction() {
-        guard let name = nameTF.text, let login = loginTF.text, let password = passwordTF.text, !name.isEmpty, !login.isEmpty, !password.isEmpty, let nv = navigationController else { return }
-        FirebaseStore().existUser(name: name, login: login, password: password, nv: nv)
+        guard let name = nameTF.text, let login = loginTF.text, let password = passwordTF.text, !name.isEmpty, !login.isEmpty, !password.isEmpty, let nv = navigationController else {
+            Alerts().loginAlert(controller: self)
+            return
+        }
+        FirebaseStore().existUser(name: name, login: login, password: password, nv: nv, vc: self)
     }
     
     private func setTitleLabelConstraints() {

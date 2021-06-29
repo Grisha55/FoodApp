@@ -28,15 +28,19 @@ class SearchPresenter: SearchViewPresenterProtocol {
     }
     
     func getHitsFromServer(tableView: UITableView, product: String) {
-        NetworkingService().fetchData(product: product) { [weak self] status in
-            guard let self = self else { return }
-            switch status {
-            case .failure(let error):
-                print(error.localizedDescription)
-            case .success(let hits):
-                self.hits = hits
-                self.searchView?.onItemsRetrieval(hits: hits)
-                tableView.reloadData()
+        DispatchQueue.global(qos: .utility).async {
+            NetworkingService().fetchData(product: product) { [weak self] status in
+                guard let self = self else { return }
+                switch status {
+                case .failure(let error):
+                    print(error.localizedDescription)
+                case .success(let hits):
+                    self.hits = hits
+                    DispatchQueue.main.async { [weak self] in
+                        self?.searchView?.onItemsRetrieval(hits: hits)
+                        tableView.reloadData()
+                    }
+                }
             }
         }
     }

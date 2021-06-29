@@ -28,6 +28,7 @@
 		BE1628302688DBDE006D7948 /* FirebaseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE16282F2688DBDE006D7948 /* FirebaseStore.swift */; };
 		BE1628322688E295006D7948 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1628312688E295006D7948 /* DatabaseManager.swift */; };
 		BE1628352688E9D6006D7948 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1628342688E9D6006D7948 /* TabBarVC.swift */; };
+		BEDD7B69268B653600A5D1B5 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDD7B68268B653600A5D1B5 /* Alerts.swift */; };
 		BEFB1B76268A4DB400BC6F12 /* RecipePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFB1B75268A4DB400BC6F12 /* RecipePresenter.swift */; };
 		BEFB1B78268A4DFD00BC6F12 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFB1B77268A4DFD00BC6F12 /* RealmManager.swift */; };
 		BEFB1B7A268A4E3B00BC6F12 /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFB1B79268A4E3B00BC6F12 /* RecipeModel.swift */; };
@@ -60,6 +61,7 @@
 		BE16282F2688DBDE006D7948 /* FirebaseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStore.swift; sourceTree = "<group>"; };
 		BE1628312688E295006D7948 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		BE1628342688E9D6006D7948 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
+		BEDD7B68268B653600A5D1B5 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		BEFB1B75268A4DB400BC6F12 /* RecipePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipePresenter.swift; sourceTree = "<group>"; };
 		BEFB1B77268A4DFD00BC6F12 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		BEFB1B79268A4E3B00BC6F12 /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 		BE1627E02687A59A006D7948 /* FoodAppList */ = {
 			isa = PBXGroup;
 			children = (
+				BEDD7B67268B652500A5D1B5 /* Warnings */,
 				BE1628332688E9A3006D7948 /* TabbarModule */,
 				BE16281826883B36006D7948 /* Extensions-Utilities */,
 				BE1628112687AB55006D7948 /* ServiceLayer */,
@@ -353,6 +356,14 @@
 			path = TabbarModule;
 			sourceTree = "<group>";
 		};
+		BEDD7B67268B652500A5D1B5 /* Warnings */ = {
+			isa = PBXGroup;
+			children = (
+				BEDD7B68268B653600A5D1B5 /* Alerts.swift */,
+			);
+			path = Warnings;
+			sourceTree = "<group>";
+		};
 		DE0F04B32A3079211E2727E1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -495,6 +506,7 @@
 				BE1628352688E9D6006D7948 /* TabBarVC.swift in Sources */,
 				BEFB1B7A268A4E3B00BC6F12 /* RecipeModel.swift in Sources */,
 				BE16282626886A7A006D7948 /* LoginAndSignUpVC.swift in Sources */,
+				BEDD7B69268B653600A5D1B5 /* Alerts.swift in Sources */,
 				BE1627E42687A59A006D7948 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
