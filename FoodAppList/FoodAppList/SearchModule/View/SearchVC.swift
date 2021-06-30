@@ -115,7 +115,7 @@ extension SearchVC: UITableViewDataSource {
         guard let totalWeight = hit.recipe?.totalWeight else { return UITableViewCell() }
         let caloriesStr = "\(Int(calories))"
         let timeStr = "\(Int(totalTime))"
-        let weightStr = ("𐄷 \(Int(totalWeight))")
+        let weightStr = "\(Int(totalWeight))"
         cell.configureCell(title: title, foodPhotoURL: photoString, calories: caloriesStr, totalTime: timeStr, totalWeight: weightStr)
         return cell
     }

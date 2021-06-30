@@ -214,8 +214,11 @@ class SearchCell: UITableViewCell {
         self.foodPhotoImageView.image = nil
         self.foodTitleLabel.text = nil
         self.caloriesLabel.text = nil
+        self.caloriesImageView.image = UIImage(named: "food")
         self.totalWeightLabel.text = nil
+        self.totalWeightImageView.image = UIImage(named: "weight")
         self.totalTimeLabel.text = nil
+        self.totalTimeImageView.image = UIImage(named: "history")
     }
     
 }
