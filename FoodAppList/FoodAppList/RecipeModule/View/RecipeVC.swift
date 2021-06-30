@@ -23,8 +23,8 @@ class RecipeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemYellow
-        title = RecipeVC.hit.recipe?.label
+        view.backgroundColor = .white
+        
         setupMinutes()
         setupPeopleCountLabel()
         
@@ -48,6 +48,7 @@ class RecipeVC: UIViewController {
     // MARK: Methods
     private func setupNavigationBar() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(buttonSaveAction))
+        title = RecipeVC.hit.recipe?.label
     }
     
     @objc func buttonSaveAction() {
@@ -66,7 +67,7 @@ class RecipeVC: UIViewController {
             recipe += "\n - \(ingredient)"
         }
         recipeTextView.text = recipe
-        recipeTextView.backgroundColor = .systemYellow
+        recipeTextView.backgroundColor = .white
         recipeTextView.showsVerticalScrollIndicator = false
     }
     
