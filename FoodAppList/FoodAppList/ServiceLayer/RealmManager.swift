@@ -14,7 +14,7 @@ class RealmManager {
     func saveToRealm(recipeModel: RecipeModel) {
         guard let realm = try? Realm() else { return }
         realm.beginWrite()
-        realm.add(recipeModel.self)
+        realm.add(recipeModel.self, update: .all)
         try? realm.commitWrite()
     }
     

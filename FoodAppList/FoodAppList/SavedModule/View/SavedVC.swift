@@ -20,12 +20,13 @@ class SavedVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         guard let collectionView = collectionView else { return }
-        self.recipies = RealmManager().getDataFromRealm(collectionView: collectionView)
+        self.recipies = try! Realm().objects(RecipeModel.self)//RealmManager().getDataFromRealm(collectionView: collectionView)
+        collectionView.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemYellow
+        view.backgroundColor = .white
         configureCollectionView()
         configureNavigationBar()
     }
@@ -55,7 +56,7 @@ class SavedVC: UIViewController {
         collectionView.frame = view.bounds
         collectionView.gemini
             .circleRotationAnimation()
-            .radius(900)
+            .radius(1000)
             .rotateDirection(.clockwise)
             .itemRotationEnabled(true)
     }
@@ -88,7 +89,7 @@ extension SavedVC: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: savedCell, for: indexPath) as? SavedCell else { return UICollectionViewCell() }
         guard let recipies = recipies else { return UICollectionViewCell() }
         let recipe = recipies[indexPath.row]
-        cell.configureCell(photoString: recipe.photoString, title: recipe.title)
+        cell.configureCell(photoString: recipe.photoString, title: recipe.title ?? "")
         self.collectionView?.animateCell(cell)
         cell.savedCellDelegate = self
         return cell
