@@ -7,6 +7,7 @@
 
 import UIKit
 import SDWebImage
+import RealmSwift
 
 class RecipeVC: UIViewController {
 
@@ -64,7 +65,7 @@ class RecipeVC: UIViewController {
         guard let ingredients = RecipeVC.hit.recipe?.ingredientLines else { return }
         var recipe = ""
         ingredients.forEach { ingredient in
-            recipe += "\n - \(ingredient)"
+            recipe += "\n ● \(ingredient)"
         }
         recipeTextView.text = recipe
         recipeTextView.backgroundColor = .white

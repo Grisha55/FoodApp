@@ -10,5 +10,9 @@ import RealmSwift
 
 class RecipeModel: Object, Codable {
     @objc dynamic var photoString: String = ""
-    @objc dynamic var title: String = ""
+    @objc dynamic var title: String? = nil
+    
+    override static func primaryKey() -> String? {
+        return "title"
+    }
 }
