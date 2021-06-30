@@ -57,7 +57,7 @@ class SavedCell: GeminiCell {
     }
     
     private func configureDeleteButton() {
-        let trashImage = UIImage(named: "Close")
+        let trashImage = UIImage(named: "Trash")
         deleteButton.setImage(trashImage, for: .normal)
         deleteButton.addTarget(self, action: #selector(buttonDeleteAction), for: .touchUpInside)
     }
