@@ -45,6 +45,8 @@ class SearchVC: UIViewController {
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search"
         navigationItem.searchController = searchController
+        navigationController?.navigationBar.prefersLargeTitles = true
+        title = "Search"
         definesPresentationContext = true
     }
     
